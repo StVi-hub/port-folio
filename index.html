@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 350px;
+            width: 100%;
+            overflow: hidden;
+            /* Hide projects that go out of bounds */
+        }
+
+        .carousel {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-preview {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+            opacity: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .project-preview img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .project-description {
+            max-height: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 90%;
+            text-align: center;
+        }
+
+        .active {
+            transform: scale(1.2);
+            z-index: 2;
+            opacity: 1;
+            /* Fully visible */
+        }
+
+        .left {
+            transform: translateX(-220px) scale(0.9);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .right {
+            transform: translateX(220px) scale(0.9);
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .hidden-project {
+            opacity: 0;
+            transform: translateX(0) scale(0.7);
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+    <header class="bg-purple-600 text-white p-6 flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Welcome to My Portfolio</h1>
+        <nav>
+            <ul class="flex space-x-6 text-center">
+                <li><a href="#about" class="hover:underline">About Me</a></li>
+                <li><a href="#projects" class="hover:underline">Projects</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="projects" class="p-8">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Projects</h2>
+        <div class="carousel-container">
+            <div id="carousel" class="carousel">
+                <div id="project1" class="project-preview bg-purple-500 text-white p-4 shadow-lg active"
+                    onclick="showProject('project1')">
+                    <img src="pixelcut-export-3-3.jpg" alt="Project 1 Preview">
+                    <h3 class="text-xl font-semibold text-center">Project 1</h3>
+                    <p class="project-description">This is a long text to make a test of the capacities of the box
+                        This is a long text to make a test of the capacities of the box
+                        This is a long text to make a test of the capacities of the box
+                        This is a long text to make a test of the capacities of the box
+                    </p>
+                </div>
+                <div id="project2" class="project-preview bg-green-500 text-white p-4 shadow-lg right"
+                    onclick="showProject('project2')">
+                    <img src="https://via.placeholder.com/300x150" alt="Project 2 Preview">
+                    <h3 class="text-xl font-semibold text-center">Project 2</h3>
+                </div>
+                <div id="project3" class="project-preview bg-blue-500 text-white p-4 shadow-lg left"
+                    onclick="showProject('project3')">
+                    <img src="https://via.placeholder.com/300x150" alt="Project 3 Preview">
+                    <h3 class="text-xl font-semibold text-center">Project 3</h3>
+                    <p class="text-center">Short preview of project 3.</p>
+                </div>
+                <div id="project4" class="project-preview bg-yellow-500 text-white p-4 shadow-lg left"
+                    onclick="showProject('project4')">
+                    <h3 class="text-xl font-semibold text-center">Project 4</h3>
+                    <p class="text-center">Short preview of project 4.</p>
+                </div>
+                <div id="project5" class="project-preview bg-red-500 text-white p-4 shadow-lg left"
+                    onclick="showProject('project5')">
+                    <h3 class="text-xl font-semibold text-center">Project 5</h3>
+                    <p class="project-description">Short preview of project 5.</p>
+                </div>
+            </div>
+        </div>
+        <div id="project1-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
+            <h3 class="text-xl font-semibold">Project 1</h3>
+            <p>Detailed description of project 1.</p>
+        </div>
+        <div id="project2-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
+            <h3 class="text-xl font-semibold">Project 2</h3>
+            <p>Detailed description of project 2.</p>
+        </div>
+        <div id="project3-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
+            <h3 class="text-xl font-semibold">Project 3</h3>
+            <p>Detailed description of project 3.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="p-8">
+        <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+        <p>You can reach me at: <a href="mailto:steven.vieira@protonmail.com"
+                class="text-purple-400 hover:underline">steven.vieira@protonmail.com</a></p>
+    </section>
+
+
+    <footer class="bg-purple-700 text-white p-4 text-center">
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let projects = document.querySelectorAll('.project-preview');
+        let currentIndex = 0;
+        let autoRotate = setInterval(nextProject, 3000);
+
+        function nextProject() {
+            updateCarousel((currentIndex + 1) % projects.length);
+        }
+
+        function showProject(projectId) {
+            clearInterval(autoRotate); // Stop auto-rotation
+
+            let clickedIndex = Array.from(projects).findIndex(p => p.id === projectId);
+            if (clickedIndex !== -1) {
+                updateCarousel(clickedIndex);
+                showProjectDetails(projectId);
+            }
+        }
+
+        function updateCarousel(newIndex) {
+            projects.forEach((project, index) => {
+                project.classList.remove('active', 'left', 'right', 'hidden-project');
+            });
+
+            let prevIndex = (newIndex - 1 + projects.length) % projects.length;
+            let nextIndex = (newIndex + 1) % projects.length;
+
+            projects[newIndex].classList.add('active');
+            projects[prevIndex].classList.add('left');
+            projects[nextIndex].classList.add('right');
+
+            // Hide all other projects
+            projects.forEach((project, index) => {
+                if (index !== newIndex && index !== prevIndex && index !== nextIndex) {
+                    project.classList.add('hidden-project');
+                }
+            });
+
+            currentIndex = newIndex;
+        }
+
+        function showProjectDetails(projectId) {
+            document.querySelectorAll('.project').forEach(div => div.classList.add('hidden'));
+            let details = document.getElementById(projectId + '-details');
+            if (details) details.classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
