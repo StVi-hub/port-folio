@@ -11,39 +11,44 @@
 
 <body class="bg-gray-900 text-gray-100">
     <header class="bg-blue-600 text-white p-6 flex flex-wrap justify-between items-center fixed top-0 left-0 w-full z-50">
-        <a href="index.html" class="text-3xl font-bold hover:underline mb-4 md:mb-0"
-            onclick="if (window.location.pathname.endsWith('index.html')) { event.preventDefault(); }">
+        <a href="index.html" class="text-3xl font-bold hover:underline mb-4 md:mb-0" data-i18n="header-title">
             Welcome to My Portfolio
         </a>
         <nav>
             <ul class="flex flex-wrap justify-center md:justify-end space-x-6 text-center">
-                <li><a href="#about" class="hover:underline">About Me</a></li>
-                <li><a href="#projects" class="hover:underline">Projects</a></li>
-                <li><a href="#contact" class="hover:underline">Contact</a></li>
+                <li><a href="#about" class="hover:underline" data-i18n="nav-about">About Me</a></li>
+                <li><a href="#projects" class="hover:underline" data-i18n="nav-projects">Projects</a></li>
+                <li><a href="#contact" class="hover:underline" data-i18n="nav-contact">Contact</a></li>
+                <button id="language-switcher" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700">
+                    Français
+                </button>
             </ul>
         </nav>
+        
     </header>
 
-    <section id="about" class="p-8 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 mt-24">        <h2 class="text-3xl font-bold mb-6 text-center">About Me</h2>
+    <section id="about" class="pt-24 p-8 bg-gradient-to-r from-gray-800 via-gray-900 to-black text-gray-100 mt-24"
+        data-i18n="about-section">
+        <h2 class="text-3xl font-bold mb-6 text-center" data-i18n="about-heading">About Me</h2>
         <div class="max-w-4xl mx-auto text-center">
-            <p class="text-lg mb-4">
+            <p class="text-lg mb-4" data-i18n="about-paragraph1">
                 Hello! I'm <span class="text-blue-400 font-semibold">Steven Vieira</span>, a computer science engineer
                 student fueled by a deep passion for IT and innovation.
             </p>
-            <p class="text-lg mb-4">
+            <p class="text-lg mb-4" data-i18n="about-paragraph2">
                 I have hands-on experience in building databases from specifications, developing dynamic websites,
                 writing clean and efficient code, debugging, and collaborating effectively within teams. I thrive on
                 solving problems and bringing ideas to life through technology.
             </p>
-            <p class="text-lg mb-4">
+            <p class="text-lg mb-4" data-i18n="about-paragraph3">
                 As I continue my journey toward becoming a skilled engineer, I stay committed to constant learning,
                 professional excellence, and personal growth.
             </p>
         </div>
     </section>
 
-    <section id="projects" class="pt-24 p-8" >
-        <h2 class="text-3xl font-semibold mb-4 text-center">Projects</h2>
+    <section id="projects" class="pt-24 p-8" data-i18n="projects-section">
+        <h2 class="text-3xl font-semibold mb-4 text-center" data-i18n="projects-heading">Projects</h2>
         <div class="carousel-container">
             <div id="carousel" class="carousel">
                 <div id="project1" class="project-preview bg-blue-500 text-white p-4 shadow-lg active"
@@ -81,64 +86,60 @@
             </div>
         </div>
         <div id="project1-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
-            <h3 class="text-xl font-semibold">Web Project</h3>
-            <p><strong>LinkedIn-Inspired Web Platform</strong> is a dynamic web application designed to connect
+            <h3 class="text-xl font-semibold" data-i18n="project1-title">Web Project</h3>
+            <p data-i18n="project1-description">
+                <strong>LinkedIn-Inspired Web Platform</strong> is a dynamic web application designed to connect
                 professionals and facilitate networking. Built with modern front-end technologies like <span
                     class="text-purple-400">HTML</span>, <span class="text-purple-400">Tailwind CSS</span>, and <span
                     class="text-purple-400">JavaScript</span>, and powered by a robust back-end using <span
                     class="text-purple-400">Laravel (PHP)</span> and a <span class="text-purple-400">MySQL</span>
-                database.</p>
-            <p>The platform features user authentication, a wishlist system, and advanced security measures to ensure a
+                database.
+                The platform features user authentication, a wishlist system, and advanced security measures to ensure a
                 seamless and secure user experience. It showcases a scalable architecture and clean design, making it an
-                ideal solution for professional networking.</p>
-            <p>Link for the GitHub: <a href=https://github.com/StVi-hub/TraverseTaRue
-                    class="text-blue-400 hover:underline" target="_blank">LinkedIn-Inspired Web Platform</a></p>
+                ideal solution for professional networking.
+            </p>
         </div>
         <div id="project2-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
-            <h3 class="text-xl font-semibold">POO Project</h3>
-            <p><strong>Conway's Game of Life in <span class="text-purple-400">C++</span></strong> is an application
-                built using CLion and CMake. It features
-                a
-                graphical interface powered by SFML, custom save/load functionality, an editable grid, and multiple
-                simulation modes for cellular automata dynamics. The project includes unit tests, a debug version
-            </p>
-            <p>Originally devised by mathematician John Horton Conway in 1970, the Game of Life is a zero-player
+            <h3 class="text-xl font-semibold" data-i18n="project2-title">POO Project</h3>
+            <p data-i18n="project2-description">
+                <strong>Conway's Game of Life in <span class="text-purple-400">C++</span></strong> is an application
+                built using CLion and CMake. It features a graphical interface powered by SFML, custom save/load functionality, an editable grid, and multiple simulation modes for cellular automata dynamics. The project includes unit tests, a debug version, and a user-friendly interface for exploring the evolution of cellular automata.
+                Originally devised by mathematician John Horton Conway in 1970, the Game of Life is a zero-player
                 cellular automaton. Its evolution is determined by its initial state, allowing users to create
-                configurations and observe their progression over time.</p>
-            <p>Link for the GitHub: <a href="https://github.com/StVi-hub/Conway-Game-Of-Life"
-                    class="text-blue-400 hover:underline" target="_blank">Game Of Life</a></p>
+                configurations and observe their progression over time.
+            </p>
         </div>
         <div id="project3-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
-            <h3 class="text-xl font-semibold">DevOps Project (On going)</h3>
-            <p>A full-stack real-time dashboard that displays GitHub commits, CI/CD pipeline statuses, deployment logs,
+            <h3 class="text-xl font-semibold" data-i18n="project3-title">DevOps Project (On going)</h3>
+            <p data-i18n="project3-description">
+                A full-stack real-time dashboard that displays GitHub commits, CI/CD pipeline statuses, deployment logs,
                 and project health metrics using modern DevOps tools. Built to help developers visualize their software
                 delivery process, the dashboard integrates GitHub APIs, Docker containers, and dynamic chart
-                visualizations.</p>
-            <p>Link for the GitHub: <a href=https://github.com/StVi-hub/devops-dashboard
-                    class="text-blue-400 hover:underline" target="_blank">LinkedIn-Inspired Web Platform</a></p>
+                visualizations. This project is designed to streamline development workflows and improve team collaboration.
+            </p>
         </div>
         <div id="project4-details" class="project p-4 bg-gray-800 text-white shadow-lg rounded hidden">
-            <h3 class="text-xl font-semibold">Portfolio Project</h3>
-            <p>A responsive personal website showcasing projects, skills, and certifications. Designed with Tailwind CSS
+            <h3 class="text-xl font-semibold" data-i18n="project4-title">Portfolio Project</h3>
+            <p data-i18n="project4-description">
+                A responsive personal website showcasing projects, skills, and certifications. Designed with Tailwind CSS
                 and deployed via Netlify, the portfolio acts as both a professional profile and technical demonstration.
                 It emphasizes clean UI/UX, project documentation access, and strategic self-presentation for recruiters
-                and tech companies.</p>
-            <p>Link for the GitHub: <a href=https://github.com/StVi-hub/port-folio class="text-blue-400 hover:underline"
-                    target="_blank">Portfolio code</a></p>
+                and tech companies.
+            </p>
         </div>
     </section>
 
     <section id="skills" class="p-8 bg-gradient-to-r from-gray-800 via-gray-800 to-gray-800 text-gray-100 ">
-        <h2 class="text-3xl font-bold mb-6 text-center text-White-400">Skills</h2>
+        <h2 class="text-3xl font-bold mb-6 text-center text-White-400" data-i18n="skills-heading">Skills</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
             <!-- Databases & Modeling -->
             <div
                 class="skill bg-gradient-to-br from-blue-900 to-black-700 text-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300 border-2 border-purple-500">
-                <h3 class="text-2xl font-semibold text-center mb-4">Databases & Modeling</h3>
+                <h3 class="text-2xl font-semibold text-center mb-4" data-i18n="skills-databases-title">Databases & Modeling</h3>
                 <div class="grid grid-cols-1">
-                    <ul class="list-disc list-inside space-y-2">
+                    <ul class="list-disc list-inside space-y-2" data-i18n="skills-databases-list">
                         <li>MySQL</li>
                         <li>UML (Unified Modeling Language)</li>
                         <li>Modelisation BDD</li>
@@ -187,7 +188,7 @@
             <!-- Programming & Web Development -->
             <div
                 class="skill bg-gradient-to-br from-blue-900 to-black-700 text-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300 border-2 border-purple-500">
-                <h3 class="text-2xl font-semibold text-center mb-4">Programming & Web Development</h3>
+                <h3 class="text-2xl font-semibold text-center mb-4" data-i18n="skills-programming-title">Programming & Web Development</h3>
                 <div class="grid grid-cols-2 gap-4">
                     <ul class="list-disc list-inside space-y-2">
                         <li>Python</li>
@@ -311,7 +312,7 @@
             <!-- Networking & Tools -->
             <div
                 class="skill bg-gradient-to-br from-blue-900 to-black-700 text-white p-6 shadow-lg rounded-lg transform hover:scale-105 transition-transform duration-300 border-2 border-purple-500">
-                <h3 class="text-2xl font-semibold text-center mb-4">Networking & Tools</h3>
+                <h3 class="text-2xl font-semibold text-center mb-4" data-i18n="skills-networking-title">Networking & Tools</h3>
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Networking -->
                     <ul class="list-disc list-inside space-y-2">
@@ -414,12 +415,16 @@
         </div>
     </section>
 
-    <section id="contact" class="pt-24 p-8">
-        <h2 class="text-3xl font-semibold mb-6">Contact</h2>
-        <p class="text-xl">You can reach me at: <a href="mailto:steven.vieira@protonmail.com"
-                class="text-purple-400 hover:underline text-1xl">steven.vieira@protonmail.com</a></p>
-        <p class="text-xl">GitHub: <a href="https://github.com/StVi-hub "
-                class="text-purple-400 hover:underline text-1xl">Link</a></p>
+    <section id="contact" class="pt-24 p-8" data-i18n="contact-section">
+        <h2 class="text-3xl font-semibold mb-6" data-i18n="contact-heading">Contact</h2>
+        <p class="text-xl" data-i18n="contact-email">
+            You can reach me at: <a href="mailto:steven.vieira@protonmail.com"
+                class="text-purple-400 hover:underline text-1xl">steven.vieira@protonmail.com</a>
+        </p>
+        <p class="text-xl" data-i18n="contact-github">
+            GitHub: <a href="https://github.com/StVi-hub "
+                class="text-purple-400 hover:underline text-1xl">Link</a>
+        </p>
     </section>
 
     <footer class="bg-blue-600 text-white p-6 text-center">
@@ -431,7 +436,7 @@
                 <img src="/Images/github-icon.png" alt="GitHub" class="w-10 h-10">
             </a>
         </div>
-        <p>&copy; 2025 Steven Vieira. All rights reserved.</p>
+        <p data-i18n="footer">&copy; 2025 Steven Vieira. All rights reserved.</p>
         <p class="text-xs">The content presented on this portfolio is for personal and professional showcase purposes. All information
             is accurate to the best of my knowledge at the time of publication. Unauthorized use or reproduction of any
             content without permission is prohibited.</p>
